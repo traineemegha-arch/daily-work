@@ -1,0 +1,34 @@
+
+public class demo1 {
+	public static void main(String[]args) {
+		int age=10;
+	System.out.println(age);
+	System.out.println("hello world");
+	boolean result= evenOrodd(age);
+	System.out.println(result);
+	stars(5,*);
+	largest(10,25,15);
+	
+	
+	}
+	 static boolean evenOrodd(int number) {
+		return number%2==0;
+		
+	}
+	static void stars(int rows,char ch) {
+		for(int i=0;i<=rows;i++) {
+			for(int j=0;j<=rows-1;j++) {
+				System.out.print();	
+			
+			System.out.println();
+		}
+			}
+			
+	}
+	static void largest(int a,int b,int c) {
+		if(a>b&&b>c) {
+			System.out.println("largest:" + a);
+		}
+	}
+
+}

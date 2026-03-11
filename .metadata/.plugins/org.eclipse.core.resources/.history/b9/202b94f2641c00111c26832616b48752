@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+public class Listdemo {
+public static void main(String[]args) {
+	List<String> list= new ArrayList<>();
+	list.add("book1");
+	list.add("book2");
+	list.add("book3");
+	System.out.println(list.size());
+	list.remove(0);
+	System.out.println("after remove= "+list.size());
+}
+}
