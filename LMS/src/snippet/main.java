@@ -1,5 +1,10 @@
 package snippet;
 
-public class main {
-
+public class Main {
+	public static void main(String[] args) {
+		Library library = new Library();
+		library.addBook("Learn Java");
+		library.borrowBook("Learn Java");
+		library.borrowBook("Learn Java");
+	}
 }
