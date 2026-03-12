@@ -1,12 +1,14 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 public class Library {
 
 
-	    ArrayList<Book> books = new ArrayList<>();
+	    Map<Integer,Book> books = new HashMap<Integer,Book>();
 
-	    void addBook(Book b) {
-	        books.add(b);
-	        System.out.println("Book added");
+	    void add(String id,String title, float price,String author ) {
+	       Book book = new Book(id,title,price,author);
+	       books.put(id, book);
 	    }
 
 	    void removeBook(int id) {
