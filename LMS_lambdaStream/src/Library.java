@@ -1,0 +1,72 @@
+import java.util.*;
+import java.util.stream.*;
+public class Library {
+	
+	
+	private List<Book> books= new ArrayList<>();
+	//add book------------------
+	public void addBook(Book book) {
+	    books.add(book);
+	}
+
+	//display-------------------
+	public void displayBook() {
+		books.stream()
+		.forEach(book -> System.out.println(book));
+	}
+	//search-------------------
+	public void SearchByTitle(String title) {
+		books.stream()
+	    .filter(book -> book.getTitle()
+	    .toLowerCase()
+	    .contains(title.toLowerCase()))
+	    .forEach(System.out::println);
+	}
+
+
+
+//available books---------
+	public void showAvailableBooks() {
+
+	    books.stream()
+	         .filter(book -> book.isAvailable())
+	         .forEach(System.out::println);
+	}
+//borrow books----------------
+	public void borrowBook(int id) {
+
+	    books.stream()
+	         .filter(book -> book.b_id() == id)
+	         .findFirst()
+	         .ifPresent(book -> book.borrowBook());
+	}
+	
+//sort----------------
+public void sortBooksByTitle() {
+
+	    books.stream()
+	         .sorted((b1,b2) -> b1.getTitle()
+	         .compareTo(b2.getTitle()))
+	         .forEach(System.out::println);
+	}
+
+//count-----------
+	public long countAvailableBooks() {
+
+	    return books.stream()
+	                .filter(Book::isAvailable)
+	                .count();
+	}
+
+	public List<Book> getBooks() {
+	    return books;
+	}
+
+	public void setBooks(List<Book> books) {
+	    this.books = books;
+	}
+
+
+	}
+
+
