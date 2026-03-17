@@ -1,0 +1,57 @@
+package com.tek.day6.unit.testing;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MathTest {
+	Math math;
+@BeforeEach
+void setup() {
+ math = new Math();
+}
+
+@Test
+void testAddWithArray() {
+	
+	int result= math.addWithArray(new int[] {2,3,4,5});
+	assertEquals(14,result);
+}
+
+
+@Test
+void testdivide() {
+	Math math= new Math();
+	int result= math.add(25,5);
+	assertEquals(5,result);
+}
+
+@Test
+void testdivideByZero() {
+	Math math= new Math();
+	int result= math.add(25,0);
+	assertEquals(5,result);
+}
+
+	@Test
+	void testAdd() {
+		Math math= new Math();
+		int result= math.add(2,5);
+		assertEquals(7,result);
+	}
+
+	@Test
+	void testAddNegativeNumbers() {
+		Math math= new Math();
+		int result= math.add(-2, -5);
+		assertEquals(-7,result);
+	}
+	
+	@Test
+	void testAddOneNegativeOnePositive() {
+		Math math= new Math();
+		int result= math.add(-2, +5);
+		assertEquals(3,result);
+	}
+	
+}
