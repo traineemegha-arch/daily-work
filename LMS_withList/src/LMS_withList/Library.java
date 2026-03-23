@@ -16,12 +16,11 @@ class Library {
     }
 
     void reserve(String title) throws BookNotAvailableException {
-
+   
         // FIX 3: validation
         if (title == null || title.trim().isEmpty()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
-        
         
         for (Book b : books) {
             if (b.title.equalsIgnoreCase(title) &&

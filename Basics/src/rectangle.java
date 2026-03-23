@@ -1,0 +1,25 @@
+
+public class rectangle {
+private int length;
+private int breadth;
+public rectangle(int length, int breadth) {
+	this.length = length;
+	this.breadth = breadth;
+}
+ void area(int length,int breadth) {
+	 int area= length*breadth;
+	 System.out.println("area "+area);
+ }
+ 
+ void perimeter(int length,int breadth) {
+	 int perimeter= length+breadth;
+	 System.out.println("perimeter "+perimeter);
+ }
+ 
+ public static void main(String[]args) {
+	 rectangle rectangle1= new rectangle(22,10);
+	 rectangle1.area(22,10);
+	 rectangle1.perimeter(22,10);
+ }
+ 
+}

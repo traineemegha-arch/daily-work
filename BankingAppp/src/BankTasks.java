@@ -2,8 +2,7 @@ class WithdrawTask implements Runnable{
 	private final BankAccount account;
 	private final int amount;
 	
-}
-public WithdrawTask(BankAcccount account,int amount) {
+public WithdrawTask(BankAccount account,int amount) {
 	this.amount=account;
 	this.amount=amount;
 }
@@ -27,6 +26,7 @@ class DepositTask implements Runnable{
 		this.account=account;
 		this.amount=amount;
 	}
+	
 	@Override
 	public void run() {
 		String thread= Thread.currentThread().getName();

@@ -43,7 +43,6 @@ void testReserveWithWhitespaceTitle() {
 	});
 	
 }
-
 	@Test
 	void testReserveWhenBookAlreadyBooked() {
 	    Book book = new Book("1", "Learn Java", 100.0f, "megha");
@@ -52,7 +51,7 @@ void testReserveWithWhitespaceTitle() {
 	    assertThrows(BookNotAvailableException.class, () -> {
 	        library.reserve("Learn Java");
 	    });
-	
+	     
 }
 	
 
