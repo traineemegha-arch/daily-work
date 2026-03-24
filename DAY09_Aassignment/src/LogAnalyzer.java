@@ -7,9 +7,8 @@ public static void main(String[] args) {
 BufferedReader br= new BufferedReader( new FileReader("System.log"));
 	String line;
 	while((line=br.readLine())!=null) {
-
 		 String logType = line.split(":")[0];
-		 map.put(logType, map.getOrDefault(logType, 0) + 1);
+		 map.put(logType, map.get(logType) + 1);
     }
 		br.close();
 		}
