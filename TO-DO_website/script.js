@@ -39,13 +39,22 @@ function renderTodos(){
 
         if(todo.completed) li.classList.add('completed');
 
+        // li.innerHTML = `
+        // <span>${todo.text}</span>
+        // <div>
+        //     <button onclick="toggleComplete(${index})">✔</button>
+        //     <button onclick="deleteTodo(${index})">✖</button>
+        // </div>
+        // `;
+
         li.innerHTML = `
-        <span>${todo.text}</span>
-        <div>
+            <span class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+                <div>
             <button onclick="toggleComplete(${index})">✔</button>
             <button onclick="deleteTodo(${index})">✖</button>
-        </div>
-        `;
+            </div>
+            `;
+
 
         list.appendChild(li);
     });

@@ -3,14 +3,13 @@ body {
     background: #f4f4f4;
     display: flex;
     justify-content: center;
-      
     align-items: center;       
     height: 100vh;             
     margin: 0;                 
 }
 
 .app {
-    background: white;
+    background: beige;
     padding: 20px;
     width: 300px;
     border-radius: 10px;
@@ -27,7 +26,7 @@ li {
     color: gray;
 }
 button{
-    background-color: grey;
+    background-color: green;
     color: white;
     border: none;
     padding: 5px 10px;
