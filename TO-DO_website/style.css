@@ -1,0 +1,36 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+      
+    align-items: center;       
+    height: 100vh;             
+    margin: 0;                 
+}
+
+.app {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+button{
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
