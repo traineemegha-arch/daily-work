@@ -1,0 +1,5 @@
+package banking.app.banking.service;
+
+public class BankService {
+
+}

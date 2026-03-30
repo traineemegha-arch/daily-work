@@ -1,0 +1,37 @@
+package LMS_withList;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class LibraryTest {
+	Library library;
+	@BeforeEach
+	void setup() {
+		library= new Library();
+	}
+@Test
+	void testReserveIfTitleNull() {
+	
+	 assertThrows(IllegalArgumentException.class, () -> {
+         library.reserve(null);
+     });
+	}
+
+@Test
+void testSuccessfulReservation() {
+	Book book = new Book("1","Learn java",100.1f,"megha"); 
+	library.books.add(book);
+	library.reserve("learn java");
+	assertEquals(STATUS.BOOKED,book.getStatus());
+}
+@Test
+	void BlankTitle() {
+	
+	}
+@Test
+void TitleHasWhiteSpaces() {
+}
+
+}

@@ -1,0 +1,10 @@
+package snippet;
+class book {
+    String title;
+//    boolean available;
+    STATUS status;
+    book(String title, STATUS status) {
+        this.title = title;
+        this.status = status;
+    }
+}

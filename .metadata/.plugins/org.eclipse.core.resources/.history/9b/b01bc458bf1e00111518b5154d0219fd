@@ -1,0 +1,110 @@
+package LMS_withList;
+
+import java.util.*;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.logging.Logger;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+class Library {
+
+    private static final Logger logger = Logger.getLogger(Library.class.getName());
+
+    Map<String, Book> books = new HashMap<>();
+
+    private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+
+    void add(String id, String title, float price, String author) {
+        lock.writeLock().lock();
+        try {
+            Book book = new Book(id, title, price, author);
+            books.put(id, book);
+            logger.info("Book added: " + title);
+            saveBooksToFile();
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+    void reserve(String title) throws Exception {
+        lock.writeLock().lock();
+        try {
+            for (Book b : books.values()) {
+                if (b.title.equalsIgnoreCase(title) && b.getStatus() == STATUS.AVAILABLE) {
+                    b.setStatus(STATUS.BOOKED);
+                    logger.info("Borrowed: " + title);
+                    saveBooksToFile();
+                    return;
+                }
+            }
+            logger.warning("Book not available: " + title);
+            throw new BookNotAvailableException("Book is not available.");
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+    List<Book> find(String title) {
+        lock.readLock().lock();
+        try {
+            List<Book> result = new ArrayList<>();
+
+            for (Book book : books.values()) {
+                if (book.title.toLowerCase().contains(title.toLowerCase())) {
+                    result.add(book);
+                }
+            }
+            return result;
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
+    Book remove(String id) throws Exception {
+        lock.writeLock().lock();
+        try {
+            Book book = books.remove(id);
+            if (book != null) {
+                logger.info("Book removed: " + book.title);
+                saveBooksToFile();
+                return book;
+            }
+            throw new Exception("No book available for id: " + id);
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+    void displayBooks() {
+        lock.readLock().lock();
+        try {
+            System.out.println("BOOKS AVAILABLE");
+            System.out.println("============================================");
+
+            for (Book book : books.values()) {
+                if (book.getStatus() == STATUS.AVAILABLE) {
+                    System.out.println(book);
+                    System.out.println("============================================");
+                }
+            }
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
+    // METHOD TO SAVE BOOK DATA INTO TXT FILE
+    void saveBooksToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("books.txt"))) {
+            for (Book book : books.values()) {
+                writer.write(book.getId() + "," + book.title + "," +
+                             book.getPrice() + "," + book.getAuthor() +
+                             "," + book.getStatus());
+                writer.newLine();
+            }
+            logger.info("Books saved to file.");
+        } catch (IOException e) {
+            logger.severe("Error writing file: " + e.getMessage());
+        }
+    }
+}

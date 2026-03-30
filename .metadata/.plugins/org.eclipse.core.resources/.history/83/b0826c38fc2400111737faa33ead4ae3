@@ -1,0 +1,17 @@
+
+public class student {
+private int id;
+private int marks;
+private String name;
+public student(int id, int marks, String name) {
+	super();
+	this.id = id;
+	this.marks = marks;
+	this.name = name;
+}
+public static void main(String[]args) {
+	student s1= new student(1,22,"megha");
+	System.out.println(s1.toString());
+}
+}
+

@@ -1,0 +1,29 @@
+package com.tek.Thread;
+import java.util.concurrent.ExecutorService;
+
+public class ExecutorServiceDemo {
+class Worker2 implements Runnable{
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName()+" started");
+	
+
+	try {
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		
+	}
+	System.out.println(Thread.currentThread().getName()+" finished");
+}
+}
+
+public class ExecutorServiceDemo{
+	public static void main(String[]args) {
+		ExecutorService executor1= Executors.newfixedThreadPool(0);
+		ExecutorService executor2= Executors.newSingleThreadExecutor();
+
+		executor1.submit(new worker2());
+		executor1.shutdown();
+	}
+}
+}

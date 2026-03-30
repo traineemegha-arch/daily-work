@@ -1,0 +1,7 @@
+
+public class BankingApp {
+private int balance;
+public BankingApp(int balance) {
+	this.balance= balance;
+}
+}

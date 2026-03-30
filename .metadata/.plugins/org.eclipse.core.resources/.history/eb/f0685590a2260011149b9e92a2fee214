@@ -1,0 +1,28 @@
+import java.util.*;
+import java.io.*;
+public class LogAnalyzer {
+public static void main(String[] args) {
+	Map<String,Integer> map= new HashMap<>();
+	try {
+BufferedReader br= new BufferedReader( new FileReader(System.logs));
+	String line;
+	while((line=br.readLine())!=null) {
+
+		 String logType = line.split(":")[0];
+		 map.put(logType, map.getOrDefault(logType, 0) + 1);
+    }
+		br.close();
+		}
+	catch (FileNotFoundException e) {
+    System.out.println("Log file not found");
+    } 
+	
+	catch (IOException e) {
+    System.out.println("Error reading file");
+}
+	for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+	
+}
+}

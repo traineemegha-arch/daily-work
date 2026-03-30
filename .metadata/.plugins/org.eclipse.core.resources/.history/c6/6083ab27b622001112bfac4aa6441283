@@ -1,0 +1,28 @@
+package LMS_withList;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class LibraryTest {
+	
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+@Test
+	void NullTitle() {
+	 assertThrows(IllegalArgumentException.class, () -> {
+         library.reserve(null);
+     });
+	}
+
+@Test
+	void BlankTitle() {
+	
+	}
+@Test
+void TitleHasWhiteSpaces() {
+}
+
+}

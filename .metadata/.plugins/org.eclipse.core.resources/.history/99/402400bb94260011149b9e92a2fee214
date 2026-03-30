@@ -1,0 +1,46 @@
+package banking.app.banking.model;
+
+import banking.app.banking.exception.BankingException;
+
+public class Account {
+private int accountNumber;
+private String holderName;
+private double balance;
+public Account(int accountNumber,String holderName,double balance) {
+	this.accountNumber=accountNumber;
+	this.balance=balance;
+	this.holderName=holderName;
+}
+public int getAccountNumber() {
+	return accountNumber;
+	
+}
+public String getholderName() {
+	return holderName;
+	
+}
+public double getBalance() {
+	return accountNumber;
+	
+}
+public void deposit(double amount) {
+	if(amount<=0) {
+		throw new BankingException("deposit must be positive");
+	}
+		balance+= amount;
+	}
+
+	
+	public void withdraw(double amount) throws BankingException{
+		if(amount<=0) {
+			throw new BankingException("withdrawal must be positive");
+		}
+		if(amount>balance) {
+			throw new BankingException("insufficient balance");
+		}
+			balance-=amount;
+		}
+	}
+
+
+

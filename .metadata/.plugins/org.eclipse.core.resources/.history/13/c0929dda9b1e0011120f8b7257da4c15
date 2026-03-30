@@ -1,0 +1,9 @@
+package snippet;
+
+public class LMS {
+
+	public class Book {
+
+	}
+
+}
