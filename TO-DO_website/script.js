@@ -8,29 +8,24 @@ function addTodo(){
     const input = document.getElementById('todo-input');
     const timeInput = document.getElementById('todo-time');
     const errorMsg = document.getElementById('error-msg');
-
-    const text = input.value.trim();
+    const priorityInput = document.getElementById('priority');
+    const text = input.value;
+    const trimmedText = text.trim();
     const time = timeInput.value;
-
-    if(text === ''){
+    const priority = priorityInput.value;
+    if(trimmedText === ''){
         errorMsg.textContent = "Name is mandatory";
         return;
     }
-
     errorMsg.textContent = "";
-
-    const priority = document.querySelector('input[name="priority"]:checked').value;
-
     todos.push({
-        text,
+        text: trimmedText,
         time,
         priority,
         completed:false
     });
-
     input.value='';
     timeInput.value='';
-
     saveTodos();
     renderTodos();
 }
@@ -53,33 +48,29 @@ function sortTodos(){
     renderTodos();
 }
 
-function getPriority() {
-   
-    document.getElementById("result").innerText = "Selected priority: " + priority;
-}
 function renderTodos(){
     const list = document.getElementById('todo-list');
     list.innerHTML='';
-
     todos.forEach((todo,index)=>{
-
         const li=document.createElement('li');
-
         li.innerHTML=`
         <span class="${todo.completed ? 'completed' : ''}">
         ${todo.text} 
         ${todo.time ? `(${todo.time})` : ''} 
         - ${todo.priority}
         </span>
-
         <div>
         <button onclick="toggleComplete(${index})">✔</button>
         <button onclick="deleteTodo(${index})">✖</button>
         </div>
         `;
-
         list.appendChild(li);
     });
 }
+
+document.getElementById("todo-input").addEventListener("input", function(){
+    const errorMsg = document.getElementById("error-msg");
+    errorMsg.innerText = "";
+});
 
 renderTodos();

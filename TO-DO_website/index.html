@@ -7,46 +7,24 @@
 </head>
 
 <body>
-
 <div class="app">
 <h2>To-Do App</h2>
-
-<input type="text" id="todo-input" placeholder="Enter Task">
+<input type="text" id="todo-input" placeholder="Enter Task" autocomplete="off">
 <button onclick="addTodo()">Add</button>
-
-<br><br>
-
+<p id="error-msg"></p>
+<br>
 <input type="time" id="todo-time">
-
-<label>
-<input type="radio" name="priority" value="Normal" checked> Normal
-</label>
-
-<label>
-<input type="radio" name="priority" value="Urgent"> Urgent
-</label>
-
 <label for="priority">Priority:</label>
-
 <select id="priority">
   <option value="high">High</option>
+  <option value="Medium">Medium</option>
   <option value="low">Low</option>
 </select>
-
-<button onclick="getPriority()">Submit</button>
-
 <p id="result"></p>
-
 <br><br>
-
 <button onclick="sortTodos()">Sort A-Z</button>
-
-<p id="error-msg"></p>
-
 <ul id="todo-list"></ul>
-
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
