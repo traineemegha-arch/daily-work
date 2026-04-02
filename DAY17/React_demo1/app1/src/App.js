@@ -1,19 +1,23 @@
 import {useState} from "react";
-import NoteForm from "./component/noteform";
+import NoteForm from "./component/Noteform";
 import NoteList from "./component/NoteList";
+
+
 function App(){
   const[notes,setNotes]=useState([]);
-  const addNote=(text)=>{
-    const newNote={id:Date.now(),text};
+
+  const addNote=(note)=>{
+    const newNote={...note};
+    newNote.id=Date.now();
     setNotes([...notes,newNote]);
   };
   const deleteNote=(id)=>{
-    setNotes(notes.filter((n)=> n.id !===id));
+    setNotes(notes.filter((n)=> n.id !== id));
   };
   return(
     <div>
       <h1>Notes App</h1>
-      <NoteForm addNote={addNote}={addNote} />
+      <NoteForm addNote={addNote} />
       <NoteList notes={notes} deleteNote={deleteNote}/>
     </div>
   );
