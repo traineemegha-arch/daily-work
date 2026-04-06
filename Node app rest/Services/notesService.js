@@ -18,13 +18,14 @@ async function getNoteById(id) {
   return note;
 }
 
-async function createNote(title, content) {
+async function createNote(title, content,time) {
   const notes = await getNotes();
   const now=new Date();
   const newNote = {
     id: Date.now(),
     title,
     content,
+    time,
     status: "CREATED",
     createdAt: now.toISOString(), 
     day: now.toLocaleString("en-US", { weekday: "long" })
@@ -49,11 +50,11 @@ async function deleteNote(id) {
 }
 
 
-async function updateNote(id, { title, content, status }) {
+async function updateNote(id, { title, content, status,time}) {
   const notes = await getNotes();
   const note = notes.find(n => n.id == id);
   if (!note) return null;
-
+  if (time) note.time = time;
   if (title) note.title = title;
   if (content) note.content = content;
   if (status) note.status = status;

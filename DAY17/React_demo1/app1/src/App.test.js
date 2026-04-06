@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
-import NoteForm from "./component/Noteform"; 
+import NoteForm from "./component/NoteForm"; 
 
 test("adds and deletes note", () => {
   render(<App />);

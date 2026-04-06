@@ -9,4 +9,5 @@ function NoteList({ notes, deleteNote }) {
     </ul>
   );
 }
+
 export default NoteList;

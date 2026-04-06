@@ -1,13 +1,15 @@
 import { useState } from "react";
+import "../App.css";
 
 function NoteForm({ addNote }) {
-  const [note, setNote] = useState({ title: "", content: "open" });
+  const [note, setNote] = useState({ title: "", content: "",time:"" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!note.title.trim()) return;
     addNote(note);
-    setNote({ title: "", content: "open" });
+    const currentTime = note.time || new Date().toLocaleTimeString();
+    setNote({ title: "", content: "",time:"" });
   };
 
   const handleChange = (event) => {
@@ -27,17 +29,22 @@ function NoteForm({ addNote }) {
         onChange={handleChange}
       />
       <label>
-        Status
-        <input
-          name="content"
-          type="checkbox"
-          checked={note.content === "open"}
-          onChange={handleChange}
-        />
+       Content:
+          <input
+        name="content"
+        placeholder="Enter content"
+        value={note.content}
+        onChange={handleChange}
+      />
+
+        <input type="time" 
+      name="time" 
+      value={note.time} 
+      onChange={handleChange} />
+
       </label>
       <button type="submit">Add</button>
     </form>
   );
 }
-
 export default NoteForm;

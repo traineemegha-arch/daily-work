@@ -4,9 +4,10 @@ const app = express();
 const notesRoutes  = require('./routes/notesRoutes');
 app.use(cors());
 app.use(express.json());
-app.use('/notes', notesRoutes); //middleware
-app.listen(3000, ()=>{
-    console.log('server started at port 3000');
+app.use('/notes', notesRoutes); 
+
+app.listen(3001, ()=>{
+    console.log('server started at port 3001');
 })
 
 module.exports = app;
