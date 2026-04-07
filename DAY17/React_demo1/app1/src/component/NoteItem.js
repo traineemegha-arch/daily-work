@@ -1,4 +1,4 @@
-function NoteItem({ note, deleteNote }) {
+function NoteItem({ note, index, deleteNote }) {
   const handleDelete = () => {
     const confirmed = window.confirm("Are you sure you want to delete this note?");
     if (confirmed) {
@@ -7,18 +7,17 @@ function NoteItem({ note, deleteNote }) {
   };
 
   return (
-    <li>
-      <span>{note.title}</span>
-      {" - "}
-      <span>{note.content}</span>
-      {note.time && (
-        <span> {note.time}</span>
-      )}
-      {note.createdAt && (
-        <span> {new Date(note.createdAt).toLocaleString()}</span>
-      )}
-      <button onClick={handleDelete}>Delete</button>
-    </li>
+    <tr>
+      <td>{index + 1}</td>
+      <td>{note.title}</td>
+      <td>{note.content}</td>
+      <td>{note.time || "—"}</td>
+      <td>{note.createdAt ? new Date(note.createdAt).toLocaleString() : "—"}</td>
+      <td>{note.range ? `${note.range}%` : "—"}</td>
+      <td>
+        <button onClick={handleDelete}>Delete</button>
+      </td>
+    </tr>
   );
 }
 

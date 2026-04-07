@@ -2,23 +2,29 @@ import { useState } from "react";
 import "../App.css";
 
 function NoteForm({ addNote }) {
-  const [note, setNote] = useState({ title: "", content: "",time:"" });
+  const [note, setNote] = useState({ title: "", content: "",time:"",range:50 });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!note.title.trim()) return;
-    addNote(note);
-    const currentTime = note.time || new Date().toLocaleTimeString();
-    setNote({ title: "", content: "",time:"" });
+    const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(note);
+  if (!note.title.trim()) return;
+  const newNote = {
+    ...note,
+    range: note.range,
+    createdAt: new Date().toISOString()
   };
+  addNote(newNote);
+  setNote({ title: "", content: "", time: "", range: 50 });
+};
 
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    setNote((prevNote) => ({
-      ...prevNote,
-      [name]: type === "checkbox" ? (checked ? "open" : "closed") : value,
-    }));
-  };
+  const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  setNote((prev) => ({
+    ...prev,
+    [name]: name === "range" ? Number(value) : value
+  }));
+};
 
   return (
     <form onSubmit={handleSubmit}>
@@ -42,7 +48,21 @@ function NoteForm({ addNote }) {
       value={note.time} 
       onChange={handleChange} />
 
-      </label>
+<div className="slidecontainer" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+  <label>Priority:</label>
+  <input
+    type="range"
+    min="1"
+    max="100"
+    name="range"
+    value={note.range}
+    onChange={handleChange}
+    className="slider"
+  />
+  <span>{note.range}</span>
+</div>
+</label>
+
       <button type="submit">Add</button>
     </form>
   );

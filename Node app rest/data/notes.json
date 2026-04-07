@@ -1,38 +1,42 @@
 [
   {
-    "id": 1775464478839,
-    "title": "study",
-    "content": "react",
-    "time": "06:30",
-    "status": "CREATED",
-    "createdAt": "2026-04-06T08:34:38.839Z",
-    "day": "Monday"
-  },
-  {
-    "id": 1775471736742,
-    "title": "study",
-    "content": "revision",
-    "time": "16:00",
-    "status": "CREATED",
-    "createdAt": "2026-04-06T10:35:36.742Z",
-    "day": "Monday"
-  },
-  {
-    "id": 1775472839807,
-    "title": "java",
+    "id": 1775542074407,
+    "title": "JAVA",
     "content": "Basics",
-    "time": "06:40",
+    "time": "10:15",
+    "range": 76,
     "status": "CREATED",
-    "createdAt": "2026-04-06T10:53:59.807Z",
-    "day": "Monday"
+    "createdAt": "2026-04-07T06:07:54.407Z",
+    "day": "Tuesday"
   },
   {
-    "id": 1775472879528,
-    "title": "react",
-    "content": "Introduction",
-    "time": "18:24",
+    "id": 1775542249091,
+    "title": "DAY-18",
+    "content": "REACT",
+    "time": "00:45",
+    "range": 86,
     "status": "CREATED",
-    "createdAt": "2026-04-06T10:54:39.528Z",
-    "day": "Monday"
+    "createdAt": "2026-04-07T06:10:49.091Z",
+    "day": "Tuesday"
+  },
+  {
+    "id": 1775542274688,
+    "title": "DAY10",
+    "content": "PYTHON",
+    "time": "00:05",
+    "range": 84,
+    "status": "CREATED",
+    "createdAt": "2026-04-07T06:11:14.688Z",
+    "day": "Tuesday"
+  },
+  {
+    "id": 1775542583485,
+    "title": "training",
+    "content": "java",
+    "time": "23:48",
+    "range": 100,
+    "status": "CREATED",
+    "createdAt": "2026-04-07T06:16:23.485Z",
+    "day": "Tuesday"
   }
 ]

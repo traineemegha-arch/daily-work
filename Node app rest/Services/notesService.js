@@ -18,7 +18,7 @@ async function getNoteById(id) {
   return note;
 }
 
-async function createNote(title, content,time) {
+async function createNote(title, content,time,range) {
   const notes = await getNotes();
   const now=new Date();
   const newNote = {
@@ -26,6 +26,7 @@ async function createNote(title, content,time) {
     title,
     content,
     time,
+    range,
     status: "CREATED",
     createdAt: now.toISOString(), 
     day: now.toLocaleString("en-US", { weekday: "long" })

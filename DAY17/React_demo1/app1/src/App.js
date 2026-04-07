@@ -2,48 +2,79 @@ import { useState, useEffect } from "react";
 import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
 import axios from "axios";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 
 const API = "http://localhost:3001/notes";
-function App() {
+
+function AppContent() {
   const [notes, setNotes] = useState([]);
+  const [search, setSearch] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
-    axios.get("http://localhost:3001/notes")
+    axios.get(API)
       .then(res => setNotes(res.data))
       .catch(err => console.error(err));
   }, []);
 
+  const filteredNotes = notes.filter(note =>
+    note.title.toLowerCase().includes(search.toLowerCase()) ||
+    note.content.toLowerCase().includes(search.toLowerCase())
+  );
+
   const addNote = (noteData) => {
-    const newNote = { ...noteData, id: Date.now() };
-    setNotes([...notes, newNote]);
-    axios.post("http://localhost:3001/notes", newNote)
-    .then(res => setNotes([...notes, res.data]))
+    axios.post(API, {
+      ...noteData,
+      range: noteData.range ?? 50
+    })
+    .then(res => setNotes(prev => [...prev, res.data]));
   };
 
   const deleteNote = (id) => {
-    setNotes(notes.filter((n) => n.id !== id));
-    axios.delete(`http://localhost:3001/notes/${id}`);
+    setNotes(prev => prev.filter(n => n.id !== id));
+    axios.delete(`${API}/${id}`).catch(err => console.error(err));
+  };
+
+  const sortByPriority = () => {
+    const sortedNotes = [...notes].sort((a, b) => b.range - a.range);
+    setNotes(sortedNotes);
   };
 
   return (
-    <BrowserRouter>
     <div>
-      <h1>Notes App</h1>
-      {/* <NoteForm addNote={addNote} />
-      <NoteList notes={notes} deleteNote={deleteNote} /> */}
       <nav>
-          <Link to="/">Notes</Link>
-          {" | "}
-          <Link to="/add">Add Note</Link>
-        </nav>
+        <Link to="/">Notes</Link> | <Link to="/add">Add Note</Link>
+      </nav>
 
-        <Routes>
-          <Route path="/" element={<NoteList notes={notes} deleteNote={deleteNote} />} />
-          <Route path="/add" element={<NoteForm addNote={addNote} />} />
-        </Routes>
+      <h1>Notes App</h1>
+
+      {location.pathname === "/" && (
+        <>
+          <input
+            type="text"
+            placeholder="Search notes..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <button onClick={sortByPriority}>
+            Sort by Priority
+          </button>
+        </>
+      )}
+
+      <Routes>
+        <Route path="/" element={<NoteList notes={filteredNotes} deleteNote={deleteNote} />} />
+        <Route path="/add" element={<NoteForm addNote={addNote} />} />
+      </Routes>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

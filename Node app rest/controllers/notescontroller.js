@@ -33,7 +33,8 @@ exports.createNote = async (request, response) => {
   const body = request && request.body ? request.body : {};
   const titleRaw = body.title;
   const contentRaw = body.content;
-  const time = body.time || "";          
+  const time = body.time || "";    
+  const range = body.range ?? 50;       
 
   const title = typeof titleRaw === "string" ? titleRaw.trim() : "";
   const content = typeof contentRaw === "string" ? contentRaw.trim() : "";
@@ -48,7 +49,8 @@ exports.createNote = async (request, response) => {
     return response.status(400).json({ error: "Content required" });
   }
 
-  const newNote = await service.createNote(title, content,time);
+ 
+  const newNote = await service.createNote(title, content, time, range);
   return response.status(201).json(newNote);
 };
 
