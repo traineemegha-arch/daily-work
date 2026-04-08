@@ -10,33 +10,13 @@
     "day": "Tuesday"
   },
   {
-    "id": 1775542249091,
-    "title": "DAY-18",
-    "content": "REACT",
-    "time": "00:45",
-    "range": 86,
+    "id": 1775553266561,
+    "title": "day-19",
+    "content": "training",
+    "time": "04:35",
+    "range": 69,
     "status": "CREATED",
-    "createdAt": "2026-04-07T06:10:49.091Z",
-    "day": "Tuesday"
-  },
-  {
-    "id": 1775542274688,
-    "title": "DAY10",
-    "content": "PYTHON",
-    "time": "00:05",
-    "range": 84,
-    "status": "CREATED",
-    "createdAt": "2026-04-07T06:11:14.688Z",
-    "day": "Tuesday"
-  },
-  {
-    "id": 1775542583485,
-    "title": "training",
-    "content": "java",
-    "time": "23:48",
-    "range": 100,
-    "status": "CREATED",
-    "createdAt": "2026-04-07T06:16:23.485Z",
+    "createdAt": "2026-04-07T09:14:26.561Z",
     "day": "Tuesday"
   }
 ]
