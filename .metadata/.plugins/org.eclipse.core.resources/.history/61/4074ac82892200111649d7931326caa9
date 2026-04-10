@@ -1,7 +1,0 @@
-package com.tek.Thread;
-public class MyThread extends Thread {
-@Override
-public void run() {
-	System.out.println("worker thread is running");
-}
-}
