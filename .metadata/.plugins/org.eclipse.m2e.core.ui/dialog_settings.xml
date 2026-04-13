@@ -24,6 +24,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -54,12 +55,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.tek"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="banking.application"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

@@ -31,7 +31,7 @@ public class NoteController {
 	Optional<Order1> getOrderById(@PathVariable Integer id) {
 		return noteService.getOrderById(id);
 	}
-	@DeleteMapping("/id")
+	@DeleteMapping("/{id}")
 	void deleteOrderById(@PathVariable Integer id) {
 		noteService.DeleteOrderById(id);
 	}
