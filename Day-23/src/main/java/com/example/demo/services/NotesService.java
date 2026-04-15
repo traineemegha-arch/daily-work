@@ -1,26 +1,20 @@
 package com.example.demo.services;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.entity.Note;
-
+import com.example.demo.repositories.NotesRepository;
 import jakarta.validation.Valid;
 
 @Service
 public class NotesService {
-public Note getNotes() {
-	Note note= new Note();
-	note.setId(1234);
-	note.setTitle("Test Note Title");
-	note.setContent("Test Note Content");
-	return note;
+@Autowired
+NotesRepository notesRepository;
+@Autowired
+public Iterable <Note> getNotes(){
+	return notesRepository.findAll();
 }
-public void setNote(Note note) {
-	System.out.println(note.getId());	
-	System.out.println(note.getTitle());
-	
-}
-public void createNote(@Valid Note note) {
-	// TODO Auto-generated method stub
+public Note createNote( Note note) {
+	return notesRepository.save(note);
 	
 }
 }

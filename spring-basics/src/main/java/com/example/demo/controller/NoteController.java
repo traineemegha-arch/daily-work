@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Order1;
-import com.example.demo.service.noteService;
+import com.example.demo.service.notesService;
 import jakarta.validation.Valid;
 @RequestMapping("/order")
 @RestController
 public class NoteController {
 	@Autowired
-	noteService noteService;
+	notesService noteService;
 	@GetMapping("/{id}")
 	Optional<Order1> getOrderById(@PathVariable Integer id) {
 		return noteService.getOrderById(id);

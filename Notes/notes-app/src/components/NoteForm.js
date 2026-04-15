@@ -18,10 +18,10 @@ function NoteForm({ addNote }) {
         onChange={(e) => setText(e.target.value)}
       />
 
-       <textarea
+      <textarea
         placeholder="Content..."
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         rows={4}
       />
       <button>Add Note</button>

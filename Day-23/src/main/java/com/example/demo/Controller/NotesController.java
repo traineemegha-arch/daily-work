@@ -1,29 +1,29 @@
 package com.example.demo.Controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Note;
 import com.example.demo.services.NotesService;
-
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(path="/notes")
-
+@CrossOrigin(origins = "http://localhost:3000")
 public class NotesController {
 	@Autowired
 	NotesService notesService;
+	
 	@GetMapping
-	Note getNotes() {
+	public Iterable<Note> getNotes() {   
 		return notesService.getNotes();
 	}
 	@PostMapping
-	void setNote(@RequestBody @Valid Note note) {
-		notesService.createNote(note);
+	public Note setNote(@RequestBody @Valid Note note) { 
+		return notesService.createNote(note);            
 	}
 }

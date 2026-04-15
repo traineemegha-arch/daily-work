@@ -1,0 +1,4 @@
+BASIC GET
+BASIC POST
+added VALIDATION for getnote and postnote
+connected to db

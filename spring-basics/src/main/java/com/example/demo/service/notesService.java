@@ -9,7 +9,7 @@ import com.example.demo.entity.Order1;
 import com.example.demo.repository.Order1Repository;
 @Service
 @Scope("prototype")
-public class noteService {
+public class notesService {
 	
 	@Autowired
 	Order1Repository order1Repository;

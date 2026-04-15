@@ -1,0 +1,72 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background-color: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  text-align: center;
+  margin-top: 10px;
+  color: green;
+}
+
+.order-list {
+  margin-top: 30px;
+}
+
+.order-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.order-line {
+  margin-left: 10px;
+}
+
+.grand-total {
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #333;
+  font-weight: bold;
+}
